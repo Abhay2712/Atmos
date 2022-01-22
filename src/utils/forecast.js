@@ -9,7 +9,11 @@ const forecast = (latitude,longitude,callback) => {
         } else if (response.body.error) {
             callback('Unable to find location. Try another search.', undefined)
         } else {
-            callback(undefined,response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. There is a "+response.body.current.precip+"% chance of rain.")
+            callback(undefined,{
+                forecast:"Weather is "+response.body.current.weather_descriptions[0] + ". The temprature is " + response.body.current.temperature + " degrees out there.",
+                rainfall:"The humidity level is "+response.body.current.humidity+"% and the rainfall measure is "+response.body.current.precip+" mm.",
+                wind:"The wind speed is "+response.body.current.wind_speed+"km/h and the direction is towards "+response.body.current.wind_dir,
+                cloud:"The cloud cover is "+response.body.current.cloudcover+"% and the UV index is "+response.body.current.uv_index +" with a visibility of "+response.body.current.visibility+" km." })
         }
     })
 }
