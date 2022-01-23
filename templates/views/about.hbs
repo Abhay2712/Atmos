@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <title>About</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="main-content">
-        {{>header}}
-        <p>This website is developed by Abhay sharma. It is a simple weather app that can be used to know the weather for any location. <br><br> It integrates data obtained from the weatherstack and mapbox API. The mapbox API converts the location into coordinates which are used by the weatherstack API to find the weather conditions of the entered location.</p>
+    {{>header}}
+    <div class="main-content wrapper">
         <img class="portrait" src="\img\me.jpg">
+        <p>This website is developed by Abhay sharma. It is a simple weather app that can be used to know the weather
+            for any location. <br><br> It integrates data obtained from the weatherstack and mapbox API. The mapbox API
+            converts the location into coordinates which are used by the weatherstack API to find the weather conditions
+            of the entered location.</p>
+        
     </div>
-    
-    {{>footer}}
-</body>
 
+    <div class="icons">
+            <div>
+                <a href="https://www.instagram.com/a_.b_.h_.a_.y/">
+                    <img class="icon" src="\img\instagram.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="mailto:abhaysharma754@gmail.com">
+                    <img class="icon" src="\img\email.png" alt="">
+                </a>
+            </div>
+    </div>
+
+    {{>footer}}
+
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
 </html>

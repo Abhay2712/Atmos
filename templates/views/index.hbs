@@ -6,37 +6,83 @@
     <title>Weather</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
+    {{>header}}
+
     <div class="main-content">
-        {{>header}}
-
-        <p>Use this site to get your weather!</p>
-        <form action="">
-            <input placeholder="Location" type="text">
-            <button>Search</button>
-        </form>
-
-        <p id="message1">
-
-        </p>
-        <p id="message2">
-
-        </p>
-        <p id="message3">
-
-        </p>
-        <p id="message4">
-
-        </p>
-        <p id="message5">
-
-        </p>
+        <p>Enter the location to get your weather!</p>
     </div>
 
+    {{!-- Search bar --}}
+    <div class="wrapper">
+        <form action="">
+        <div class='flex items-center justify-center from-cyan-100 via-pink-200 to-yellow-200 bg-gradient-to-br '>
+            <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
+                <div class="">
+                    <input type="search" class="px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+                        placeholder="Location" x-model="search">
+                </div>
+                <div>
+                    <button type="submit"
+                        class="flex items-center bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg data-button"
+                        :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
+                        :disabled="search.length == 0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="output">
+        <!-- {{!-- hidden --}} -->
+        <div class="container1">
+            <img src="" alt=""
+                id="icon">
+            <p id="message1">
+            </p>
+        </div>
+
+        <div class="container2">
+            <p id="message2">
+            </p>
+            <p id="message3">
+            </p>
+            <p id="message4">
+            </p>
+            <p id="message5">
+            </p>
+        </div>
+    </div>
+
+
+    </div>
+
+    </div>
+    
     {{>footer}}
 
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const btn2 = document.querySelector("button.data-button");
+        const menu = document.querySelector(".mobile-menu");
+        const output = document.querySelector(".output");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+        btn2.addEventListener("click", () => {
+            output.classList.enable("hidden");
+        });
+    </script>
     <script src="/js/app.js"></script>
 </body>
 

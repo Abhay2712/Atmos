@@ -23,7 +23,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
+        title: 'Atmos',
         name: 'Abhay'
     })
 })
@@ -38,7 +38,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'Enter the location you want to know the weather for in the search box and press enter or click on the search button. ',
-        aboutText: 'You can also click on the about button to know more about me.',
+        aboutText: 'You can also click on the about button to know more about me and the appliacation.',
         title: 'Help',
         name: 'Abhay'
     })
@@ -61,6 +61,7 @@ app.get('/weather', (req, res) => {
 
             res.send({
                 forecast:forcastData.forecast,
+                icon:forcastData.icon,
                 rainfall:forcastData.rainfall,
                 wind:forcastData.wind,
                 cloud:forcastData.cloud,

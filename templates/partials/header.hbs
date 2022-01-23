@@ -1,7 +1,31 @@
-<header>
-    <h1>{{title}}</h1>
-
-    <a href="/">Weather</a>
-    <a href="/about">About</a>
-    <a href="/help">Help</a>
-</header>
+<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-4 header">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <a href="/" class="flex items-center  px-2">
+            <img src="/img/weather.png" alt="Logo" class="h-8 w-8 mr-2">
+        </a>
+        <span class="font-semibold text-xl tracking-tight">Atmos</span>
+    </div>
+    {{!-- for mobile screens --}}
+    <div class="block lg:hidden min-w-600">
+        <button
+            class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white mobile-menu-button">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+        </button>
+    </div>
+    <div class="w-full flex-grow lg:flex lg:items-center hidden lg:w-auto  mobile-menu">
+        <div class="text-sm lg:flex-grow">
+            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                Weather
+            </a>
+            <a href="/about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                About
+            </a>
+            <a href="/help" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                Help
+            </a>
+        </div>
+    </div>
+</nav>

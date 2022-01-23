@@ -25,6 +25,8 @@ weatherForm.addEventListener('submit', (e) => {
                 message3.textContent = (data.rainfall)
                 message4.textContent = (data.wind)
                 message5.textContent = (data.cloud)
+                document.getElementById("icon").src = (data.icon)
+
             }
         })
     })
